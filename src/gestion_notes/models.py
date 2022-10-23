@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+class URL:
+    BASE_URL = "http://localhost:9000/api/"
