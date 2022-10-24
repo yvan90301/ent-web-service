@@ -591,7 +591,7 @@ class RoleViewSet(viewsets.ViewSet):
 
 @api_view(['POST'])
 def get_all_role_by_user(request):
-    r = requests.get(URL.BASE_URL + "/allByUtilisateur", data=request.data)
+    r = requests.post(URL.BASE_URL + "/allByUtilisateur", data=request.data)
     return Response(r.json())
 
 
@@ -787,17 +787,17 @@ class UtilisateurViewSet(viewsets.ViewSet):
 
 @api_view(['POST'])
 def login(request):
-    r = requests.get(URL.BASE_URL + "utilisateur/login", data=request.data)
+    r = requests.post(URL.BASE_URL + "utilisateur/login", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
 def deconnect(request):
-    r = requests.get(URL.BASE_URL + "utilisateur/deconnect", data=request.data)
+    r = requests.post(URL.BASE_URL + "utilisateur/deconnect", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
 def roles_utilisateur(request):
-    r = requests.get(URL.BASE_URL + "utilisateur/rolesuser", data=request.data)
+    r = requests.post(URL.BASE_URL + "utilisateur/rolesuser", data=request.data)
     return Response(r.json())

@@ -1,3 +1,5 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 
-# Create your tests here.
+c = Client()
+response = c.get("/enseignant")
+assert response.status_code == 200
