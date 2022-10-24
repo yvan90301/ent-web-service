@@ -336,7 +336,7 @@ class FiliereViewSet(viewsets.ViewSet):
         return Response(r.json())
 
 @api_view(['GET'])
-def get_note_by_libelle_filiere(request, libele_filiere):
+def get_note_by_libelle_filiere(request, libele_filiere): # search-semestre-by-libelle-or-annee-academique/<str:libelle>/<str:annee_academique>/
     r = requests.get(URL.BASE_URL + "filiere/" + libele_filiere + "/search")
     return Response(r.json())
 
@@ -451,7 +451,7 @@ class NoteCCViewSet(viewsets.ViewSet):
         return Response(r.json())
 
 @api_view(['GET'])
-def search_note_cc_by_candidat_or_type_note_cc(request, candiat, type_note_cc):
+def search_note_cc_by_candidat_or_type_note_cc(request, candiat, type_note_cc): # type-note-cc/search-type-note-cc-by-enseignement-or-numero_cc/<str:type_note_cc>/<str:filiere>/
     r = requests.get(URL.BASE_URL + "notecc/" + candiat + "/" + type_note_cc + "/recherche")
     return Response(r.json())
 
@@ -515,55 +515,55 @@ class PasswordResetViewSet(viewsets.ViewSet):
 # Print
 
 @api_view(['GET'])
-def generate_carte_etudiant(request):  # /api/print
+def generate_carte_etudiant(request):  # print/generate-carte-etudiant/
     r = requests.get(URL.BASE_URL + "print/generatecarteetudiant")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_attestation(request):  # /api/print
+def generate_attestation(request):  # print/generate-attestation/
     r = requests.get(URL.BASE_URL + "print/generateatestation")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_diplome(request):  # /api/print/<str:code>
+def generate_diplome(request):  # print/generate-diplome/
     r = requests.get(URL.BASE_URL + "print/generatediplome")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_fiche_absence(request):  # /api/print/<str:code>
+def generate_fiche_absence(request):  # print/generate-fiche-absence/
     r = requests.get(URL.BASE_URL + "print/generateficheabsence")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_pv(request):  # /api/print/<str:code>
+def generate_pv(request):  # print/generate-pv/
     r = requests.get(URL.BASE_URL + "print/generatePv")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_notes(request):  # /api/print/<str:code>
+def generate_notes(request):  # print/generate-notes/
     r = requests.get(URL.BASE_URL + "print/generateNotes")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_releve_notes(request):  # /api/print/<str:code>
+def generate_releve_notes(request):  # print/generate-releve-notes/
     r = requests.get(URL.BASE_URL + "print/generateReleve")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_pv_synthese(request):  # /api/print/<str:code>
+def generate_pv_synthese(request):  # print/generate-pv-synthese/
     r = requests.get(URL.BASE_URL + "print/generatePVSynthese")
     return Response(r.json())
 
 
 @api_view(['GET'])
-def generate_certificat_scolarite(request):  # /api/print/<str:code>
+def generate_certificat_scolarite(request):  # print/generate-certificat-scolarite/
     r = requests.get(URL.BASE_URL + "print/generateCertificat")
     return Response(r.json())
 
@@ -687,7 +687,7 @@ class SpecialiteViewSet(viewsets.ViewSet):
 
 
 @api_view(['GET'])
-def search_specialite_by_specialite_or_filiere(request, specialite, filiere):
+def search_specialite_by_specialite_or_filiere(request, specialite, filiere): #  specialite/search-specialite-by-specialite-or-filiere/<str:specialite>/<str:filiere>/
     r = request.get(URL.BASE_URL + "specialite/" + specialite + "/" + filiere + "/recherche")
     return Response(r.json())
 
@@ -786,18 +786,18 @@ class UtilisateurViewSet(viewsets.ViewSet):
 
 
 @api_view(['POST'])
-def login(request):
+def login(request): # utilisateur/login/
     r = requests.post(URL.BASE_URL + "utilisateur/login", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
-def deconnect(request):
+def deconnect(request): # utilisateur/deconnect/
     r = requests.post(URL.BASE_URL + "utilisateur/deconnect", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
-def roles_utilisateur(request):
+def roles_utilisateur(request): # utilisateur/roles-utilisateur/
     r = requests.post(URL.BASE_URL + "utilisateur/rolesuser", data=request.data)
     return Response(r.json())
