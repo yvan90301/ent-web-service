@@ -687,7 +687,7 @@ class SpecialiteViewSet(viewsets.ViewSet):
 
 
 @api_view(['GET'])
-def search_specialite_by_specialite_or_filiere(request, specialite, filiere): #  specialite/search-specialite-by-specialite-or-filiere/<str:specialite>/<str:filiere>/
+def search_specialite_by_specialite_or_filiere(request, specialite, filiere): #  /api/specialite/search-specialite-by-specialite-or-filiere/<str:specialite>/<str:filiere>/
     r = request.get(URL.BASE_URL + "specialite/" + specialite + "/" + filiere + "/recherche")
     return Response(r.json())
 
@@ -786,18 +786,18 @@ class UtilisateurViewSet(viewsets.ViewSet):
 
 
 @api_view(['POST'])
-def login(request): # utilisateur/login/
+def login(request): # api/utilisateur/login/
     r = requests.post(URL.BASE_URL + "utilisateur/login", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
-def deconnect(request): # utilisateur/deconnect/
+def deconnect(request): # api/utilisateur/deconnect/
     r = requests.post(URL.BASE_URL + "utilisateur/deconnect", data=request.data)
     return Response(r.json())
 
 
 @api_view(['POST'])
-def roles_utilisateur(request): # utilisateur/roles-utilisateur/
+def roles_utilisateur(request): # api/utilisateur/roles-utilisateur/
     r = requests.post(URL.BASE_URL + "utilisateur/rolesuser", data=request.data)
     return Response(r.json())
